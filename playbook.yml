@@ -1,0 +1,18 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Delete existing dist folder
+      file:
+        path: "/var/app"
+        state: absent
+    - name: Read-write git checkout from github
+      ansible.builtin.git:
+        repo: https://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@github.com/Calebkingeno03/yolo
+        dest: /var/app
+        single_branch: yes
+        version: Stage_two
+    - name: Delete work directory.
+      apt: name=ntp state=present
+    - name: Ensure ntp is running.
+      service: name=ntp state=started enabled=yes
