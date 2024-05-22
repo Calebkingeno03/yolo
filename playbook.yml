@@ -8,7 +8,7 @@
         state: absent
     - name: Read-write git checkout from github
       ansible.builtin.git:
-        repo: https://${TOKEN}@github.com/Calebkingeno03/yolo
+        repo: https://github.com/Calebkingeno03/yolo
         dest: /var/app
         single_branch: yes
         version: Stage_two
