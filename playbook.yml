@@ -62,5 +62,12 @@
       ansible.builtin.service:
         name: docker
         enabled: yes   
-
-    
+        
+    - name: Install Docker Compose
+      become: True
+      shell:
+        cmd: curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    - name: Executable docker compose
+      become: True
+      shell:
+        cmd: "chmod +x /usr/local/bin/docker-compose" 
