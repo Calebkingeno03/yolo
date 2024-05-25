@@ -71,3 +71,9 @@
       become: True
       shell:
         cmd: "chmod +x /usr/local/bin/docker-compose" 
+    - name: Run container
+      become: True
+      shell:
+        cmd: "docker-compose -f docker-compose.yaml  up -d"
+        chdir: /var/app
+
