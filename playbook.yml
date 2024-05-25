@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Read-write git checkout from github
+      ansible.builtin.git:
+        repo: https://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@github.com/Calebkingeno03/yolo
+        dest: /var/app
+        single_branch: yes
+        version: Stage_two
+
+
